@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProcureBA Wireframes: To-Be System Key Screens</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; background: #e8ebee; color: #2b2b2b; }
+  header { background: #3a3a3a; color: #fff; padding: 16px 26px; }
+  header h1 { margin: 0; font-size: 20px; }
+  header p { margin: 4px 0 0; font-size: 13px; opacity: .85; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 20px; }
+  .screen { background: #fff; border: 2px solid #8a8a8a; border-radius: 6px; margin-bottom: 26px; }
+  .screen-head { background: #d9d9d9; padding: 8px 14px; font-weight: 700; font-size: 14px; border-bottom: 2px solid #8a8a8a; }
+  .screen-body { padding: 16px; display: grid; grid-template-columns: 2fr 1fr; gap: 18px; }
+  @media (max-width: 860px) { .screen-body { grid-template-columns: 1fr; } }
+  .wf { border: 1.5px dashed #9a9a9a; border-radius: 4px; padding: 10px; min-height: 30px; margin-bottom: 10px; font-size: 13px; background: #fbfbfb; }
+  .wf.solid { border-style: solid; border-color: #6a6a6a; background: #f2f2f2; }
+  .wf.btn { display: inline-block; background: #3a3a3a; color: #fff; border: none; padding: 8px 16px; font-weight: 600; }
+  .wf.btn.light { background: #fff; color: #3a3a3a; border: 1.5px solid #6a6a6a; }
+  .row { display: flex; gap: 10px; } .row .wf { flex: 1; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { border: 1px solid #b5b5b5; padding: 5px 7px; text-align: left; }
+  th { background: #e6e6e6; }
+  .notes { font-size: 13px; }
+  .notes h3 { margin-top: 0; font-size: 14px; }
+  .notes li { margin-bottom: 6px; }
+  .bar { height: 14px; background: repeating-linear-gradient(90deg, #9a9a9a 0 26px, #c9c9c9 26px 52px); border-radius: 3px; }
+  .pill { display: inline-block; border: 1.5px solid #6a6a6a; border-radius: 10px; padding: 1px 9px; font-size: 11.5px; margin-right: 4px; }
+  .big { font-size: 24px; font-weight: 700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>ProcureBA Wireframes: To-Be E-Procurement System</h1>
+  <p>Low-fidelity wireframes for the four key screens. Layout and content structure only; visual design comes from the selected vendor product. Each screen lists the requirements it implements.</p>
+</header>
+<div class="wrap">
+
+  <div class="screen">
+    <div class="screen-head">Screen 1: Purchase Requisition Form (Requester) | UC-01 | FR-01, FR-02, FR-08</div>
+    <div class="screen-body">
+      <div>
+        <div class="row"><div class="wf solid">Site: [ Site Alpha - Industrial Plant v ]</div><div class="wf solid">Required date: [ 2026-03-14 ]</div></div>
+        <div class="wf">Search catalog: [ type item name or code... ]</div>
+        <table>
+          <tr><th>Item (from catalog)</th><th>Qty</th><th>Unit</th><th>Est. price</th><th>Line total</th></tr>
+          <tr><td>Gate valve 6 inch class 300</td><td>4</td><td>pcs</td><td>Rp 18,500,000</td><td>Rp 74,000,000</td></tr>
+          <tr><td>Flange WN 6 inch class 300</td><td>8</td><td>pcs</td><td>Rp 2,750,000</td><td>Rp 22,000,000</td></tr>
+          <tr><td colspan="4"><em>+ Add line (catalog or free-text with specification and attachment)</em></td><td><strong>Rp 96,000,000</strong></td></tr>
+        </table>
+        <div class="row" style="margin-top:10px"><div class="wf solid">Budget code: [ PRJ-ALPHA-2026-CAPEX v ]</div><div class="wf solid">Priority: ( ) Normal&nbsp;&nbsp; ( ) Fast-track</div></div>
+        <div class="wf">Fast-track justification (appears only when Fast-track is selected, mandatory): [ text area ]</div>
+        <span class="wf btn">Submit PR</span> <span class="wf btn light">Save draft</span>
+      </div>
+      <div class="notes">
+        <h3>Design notes</h3>
+        <ul>
+          <li>Catalog first: standard items carry pre-approved specifications, which removes the unclear-specification rework found in elicitation (EF-07).</li>
+          <li>Mandatory fields are validated inline; an incomplete PR cannot be submitted.</li>
+          <li>Fast-track is visible but deliberately frictioned: selecting it requires a justification and warns that post-review will follow (FR-08).</li>
+          <li>Form autosaves on connection loss (NFR-04); target completion time under 5 minutes (US-01).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="screen-head">Screen 2: Approval Screen (Project Manager, mobile-first) | UC-02 | FR-03</div>
+    <div class="screen-body">
+      <div>
+        <div class="wf solid"><strong>PR-2026-0142</strong> - Site Alpha - Industrial Plant<br>Requester: Rizky (Site Engineer) | Submitted: today 08:12 | In stage: 3 hours</div>
+        <table>
+          <tr><th>Item</th><th>Qty</th><th>Est. total</th></tr>
+          <tr><td>Gate valve 6 inch class 300</td><td>4 pcs</td><td>Rp 74,000,000</td></tr>
+          <tr><td>Flange WN 6 inch class 300</td><td>8 pcs</td><td>Rp 22,000,000</td></tr>
+        </table>
+        <div class="wf" style="margin-top:10px">Total estimated value: <strong>Rp 96,000,000</strong> | Budget remaining after this PR: Rp 412,000,000 | Priority: Normal</div>
+        <div class="wf">Comment (optional for approval, mandatory for rejection): [ text area ]</div>
+        <span class="wf btn">Approve</span> <span class="wf btn light">Request clarification</span> <span class="wf btn light">Reject</span>
+        <div class="wf" style="margin-top:10px">Delegate if I am unavailable: [ Auto-delegate to Deputy PM after 24 hours: ON ]</div>
+      </div>
+      <div class="notes">
+        <h3>Design notes</h3>
+        <ul>
+          <li>Everything needed for a decision is on one screen: items, value, budget impact, priority. No attachments to hunt through.</li>
+          <li>Designed for a phone browser first, because approvers are on site rounds (NFR-04).</li>
+          <li>Reminder at 24 hours, delegation after the configured period; both events land in the audit trail (UAT-02).</li>
+          <li>Rejection without a reason is blocked by design (UAT-03).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="screen-head">Screen 3: Status Tracking (Requester view) | UC-06 | FR-13, FR-04</div>
+    <div class="screen-body">
+      <div>
+        <div class="wf solid">My PRs | Filter: [ All v ] [ Site v ] [ Status v ] Search: [ PR number... ]</div>
+        <table>
+          <tr><th>PR</th><th>Item summary</th><th>Current stage</th><th>Stage owner</th><th>Days in stage</th><th>Expected</th></tr>
+          <tr><td>PR-2026-0142</td><td>Valves and flanges</td><td>Vendor Quotation</td><td>Vendors (deadline in 1 day)</td><td>2.1</td><td>PO by 2026-03-05</td></tr>
+          <tr><td>PR-2026-0139</td><td>HDPE pipe</td><td>Procurement Validation</td><td>Sari (Procurement)</td><td>0.4</td><td>On track</td></tr>
+          <tr><td>PR-2026-0131</td><td>Conveyor belt (fast-track)</td><td>PO Issued</td><td>System</td><td>0.2</td><td>Delivery 2026-02-27</td></tr>
+        </table>
+        <div class="wf" style="margin-top:10px">Stage timeline for PR-2026-0142:<br>
+          <span class="pill">Submitted ✓</span><span class="pill">PM Approval ✓ (0.8 d)</span><span class="pill">Validation ✓ (0.6 d)</span><span class="pill">RFQ ✓</span><span class="pill"><strong>Quotation (now)</strong></span><span class="pill">PO</span><span class="pill">Delivery</span>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Design notes</h3>
+        <ul>
+          <li>This screen is the direct answer to the top elicitation finding: "We never know where our PR is" (EF-01).</li>
+          <li>Stage SLA breaches are highlighted with the escalation state, so a stalled PR is visible before it becomes a phone call.</li>
+          <li>Expected PO and delivery dates are estimates from stage targets, labeled as estimates.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="screen-head">Screen 4: KPI Dashboard (Management and Procurement Manager) | UC-10 | FR-12, FR-11</div>
+    <div class="screen-body">
+      <div>
+        <div class="row">
+          <div class="wf solid" style="text-align:center">Avg cycle time<br><span class="big">17.5 d</span><br>target 7.0 d</div>
+          <div class="wf solid" style="text-align:center">Maverick rate<br><span class="big">12.2%</span><br>target 3% max</span></div>
+          <div class="wf solid" style="text-align:center">On-time delivery<br><span class="big">85.7%</span><br>target 93%</div>
+        </div>
+        <div class="wf">Cycle time by stage (bar chart):<div class="bar" style="margin-top:6px"></div></div>
+        <div class="row">
+          <div class="wf">Spend by category (chart)</div>
+          <div class="wf">Cycle time trend, 24 months (line chart)</div>
+        </div>
+        <table>
+          <tr><th>Vendor</th><th>On-time</th><th>Avg lead</th><th>Score</th></tr>
+          <tr><td>PT Karya Pipe Nusantara</td><td>95.5%</td><td>8.3 d</td><td>86.2</td></tr>
+          <tr><td>CV Wira Consumable Parts</td><td>71.1%</td><td>20.4 d</td><td>55.4</td></tr>
+        </table>
+      </div>
+      <div class="notes">
+        <h3>Design notes</h3>
+        <ul>
+          <li>Three headline KPIs match the business objectives (BR-01, BR-03, BR-05) and are visible without scrolling.</li>
+          <li>Every figure drills down to the underlying PR list; dashboard numbers must reconcile with transactions (UAT-13).</li>
+          <li>Baseline figures shown here are the case study analysis results. A working version of this screen is in dashboard/kpi_dashboard.html.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
